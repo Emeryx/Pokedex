@@ -12,9 +12,11 @@ const PokemonContainer: React.FC<Pokemon> = ({ id, name, type, image }) => {
             <img className='size-64' src={image}></img>
             <p className='font-bold text-xl text-slate-500'>#{id}</p>
             <p className='font-bold text-3xl text-slate-900'>{name}</p>
-            {
-                type.map((t, i) => <p key={i} className={(typeColors[t] || 'bg-gray-800')+' w-fit py-2 px-4 font-medium text-xl rounded-3xl'}>{t}</p>)
-            }
+            <div className='flex flex-row gap-x-3'>
+                {
+                    type.map((t, i) => <p key={i} className={(typeColors[t] || 'bg-gray-800 text-white')+' w-fit py-2 px-4 font-medium text-xl rounded-3xl'}>{t}</p>)
+                }
+            </div>
         </div>)
 }
 
