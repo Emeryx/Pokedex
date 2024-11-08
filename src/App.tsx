@@ -30,7 +30,7 @@ function App() {
     return <p>{error.message}</p>
   }
   else return (
-    <div className='bg-gray-100 h-screen w-screen flex flex-row flex-wrap gap-16 mx-32'>
+    <div className='bg-gray-100 h-full w-full flex flex-row flex-wrap gap-16 p-32 items-center justify-center'>
       {
         data?.pages.map((group, i) => 
           <React.Fragment key={i}>
