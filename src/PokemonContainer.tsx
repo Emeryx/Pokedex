@@ -6,7 +6,7 @@ interface PokemonContainerProps{
 }
 
 const PokemonContainer: React.FC<PokemonContainerProps> = ({ pokemon }) => {
-    return (<div className='mt-64 bg-white w-fit h-80 rounded-3xl space-y-3 flex flex-col justify-end items-center p-8 shadow-lg'>
+    return (<div className='bg-white w-fit h-80 rounded-3xl space-y-3 flex flex-col justify-end items-center p-8 shadow-lg scale-90 xl:mt-16 mt-8'>
             <img className='size-64' src={pokemon.image}></img>
             <p className='font-bold text-xl text-slate-500'>#{pokemon.id}</p>
             <p className='font-bold text-3xl text-slate-900'>{pokemon.name.charAt(0).toUpperCase()+pokemon.name.slice(1)}</p>
