@@ -1,8 +1,9 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import PokemonContainer from './PokemonContainer'
 import fetchInfinitePokemon from './fetchInfinitePokemon';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Pokemon from './Pokemon.interface';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
     }
   })
 
+  useEffect(()=>console.log(data?.pages.length))
+
   if(isFetching && !data){
     return <p>Loading</p>
   }
@@ -30,6 +33,11 @@ function App() {
     return <p>{error.message}</p>
   }
   else return (
+    <InfiniteScroll
+      dataLength={data?.pages.length ?? 0}
+      next={fetchNextPage}
+      hasMore={hasNextPage}
+      loader={<p>Loading...</p>}>
     <div className='bg-gray-100 h-full w-full flex flex-row flex-wrap gap-16 p-32 items-center justify-center'>
       {
         data?.pages.map((group, i) => 
@@ -44,6 +52,7 @@ function App() {
       }
       <button onClick={() => fetchNextPage()} disabled={!hasNextPage}>More</button>
     </div>
+    </InfiniteScroll>
   )
 }
 
