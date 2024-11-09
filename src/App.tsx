@@ -42,7 +42,7 @@ function App() {
       next={fetchNextPage}
       hasMore={hasNextPage}
       loader={<p>Loading...</p>}>
-      <div className='bg-gray-100 h-full w-full flex flex-row flex-wrap gap-16 p-32 items-center justify-center'>
+      <div className='bg-gray-100 h-full w-full flex flex-row flex-wrap gap-16 md:p-32 p-16 items-center justify-center'>
         {
           data?.pages.map((group, i) => 
             <React.Fragment key={i}>
