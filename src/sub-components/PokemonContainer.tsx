@@ -1,6 +1,6 @@
-import typeColors from "./assets/typeColors";
-import Pokemon from "./Pokemon.interface";
-import snakeToTitleCase from "./snakeToTitleCase";
+import typeColors from "../assets/typeColors";
+import Pokemon from "../assets/Pokemon.interface";
+import snakeToTitleCase from "../assets/snakeToTitleCase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 interface PokemonContainerProps{

@@ -1,8 +1,8 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
-import PokemonContainer from './PokemonContainer'
-import fetchInfinitePokemon from './fetchInfinitePokemon';
-import React, { useEffect } from 'react';
-import Pokemon from './Pokemon.interface';
+import PokemonContainer from './sub-components/PokemonContainer'
+import fetchInfinitePokemon from './assets/fetchInfinitePokemon';
+import React from 'react';
+import Pokemon from './assets/Pokemon.interface';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
     }
   })
 
-  useEffect(()=>console.log(data?.pages.length))
+  // useEffect(()=>console.log(data?.pages.length))
 
   if(isFetching && !data){
     return (
