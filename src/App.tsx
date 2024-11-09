@@ -27,7 +27,11 @@ function App() {
   useEffect(()=>console.log(data?.pages.length))
 
   if(isFetching && !data){
-    return <p>Loading</p>
+    return (
+    <div className='bg-gray-100 h-full w-full flex flex-row flex-wrap gap-16 p-32 items-center justify-center'>
+      <p className='text-3xl'>Loading...</p>
+    </div>
+  )
   }
   else if (error){
     return <p>{error.message}</p>
@@ -38,20 +42,19 @@ function App() {
       next={fetchNextPage}
       hasMore={hasNextPage}
       loader={<p>Loading...</p>}>
-    <div className='bg-gray-100 h-full w-full flex flex-row flex-wrap gap-16 p-32 items-center justify-center'>
-      {
-        data?.pages.map((group, i) => 
-          <React.Fragment key={i}>
-            {
-              group?.pokemonData.map((pokemon: Pokemon) => 
-                <PokemonContainer key={'pokemon-'+pokemon.id} pokemon={pokemon} />
-              )
-            }
-          </React.Fragment>
-        )
-      }
-      <button onClick={() => fetchNextPage()} disabled={!hasNextPage}>More</button>
-    </div>
+      <div className='bg-gray-100 h-full w-full flex flex-row flex-wrap gap-16 p-32 items-center justify-center'>
+        {
+          data?.pages.map((group, i) => 
+            <React.Fragment key={i}>
+              {
+                group?.pokemonData.map((pokemon: Pokemon) => 
+                  <PokemonContainer key={'pokemon-'+pokemon.id} pokemon={pokemon} />
+                )
+              }
+            </React.Fragment>
+          )
+        }
+      </div>
     </InfiniteScroll>
   )
 }

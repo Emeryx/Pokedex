@@ -1,12 +1,19 @@
 import typeColors from "./assets/typeColors";
 import Pokemon from "./Pokemon.interface";
 import snakeToTitleCase from "./snakeToTitleCase";
+import { useState } from "react";
 interface PokemonContainerProps{
     pokemon: Pokemon
 }
 
 const PokemonContainer: React.FC<PokemonContainerProps> = ({ pokemon }) => {
-    return (<div className='bg-white w-fit h-80 rounded-3xl space-y-3 flex flex-col justify-end items-center p-8 shadow-lg scale-90 xl:mt-16 mt-8'>
+    // Hover state is required for Tailwind's dynamic class import system to work correctly
+    const [hovered, setHovered] = useState(false);
+    const hoveredBgColor = typeColors[pokemon.types[0].type.name] || 'bg-white'
+    return (<div
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className={`${hovered ? `${hoveredBgColor} bg-opacity-35` : 'bg-white'} w-fit h-80 rounded-3xl space-y-3 flex flex-col justify-end items-center p-8 shadow-lg scale-90 xl:mt-16 mt-8 transition-transform hover:-translate-y-4 hover:cursor-pointer`}>
             <img className='size-64' src={pokemon.image ?? 'https://www.svgrepo.com/show/305312/question-mark.svg'}></img>
             <p className='font-bold text-xl text-slate-500'>#{pokemon.id}</p>
             <p className='font-bold text-3xl text-slate-900'>{snakeToTitleCase(pokemon.name)}</p>
