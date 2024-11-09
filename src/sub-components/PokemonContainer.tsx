@@ -17,8 +17,8 @@ const PokemonContainer: React.FC<PokemonContainerProps> = ({ pokemon }) => {
     return (<div
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        onClick={() => navigate(`/pokemon/${pokemon.name}`)}
-        className={`${hovered ? `${hoveredBgColor} bg-opacity-35` : 'bg-white'} w-fit h-80 rounded-3xl space-y-3 flex flex-col justify-end items-center p-8 shadow-lg scale-90 xl:mt-16 mt-8 transition-all hover:-translate-y-4 hover:cursor-pointer`}>
+        onClick={() => pokemon.id < 10000 && navigate(`/pokemon/${pokemon.name}`)}
+        className={`${hovered ? `${hoveredBgColor} bg-opacity-35` : 'bg-white'} w-fit h-80 rounded-3xl space-y-3 flex flex-col justify-end items-center p-8 shadow-lg scale-90 xl:mt-16 mt-8 transition-all hover:-translate-y-4 hover:${pokemon.id < 10000 && 'cursor-pointer'}`}>
             <img className='size-64' src={pokemon.image ?? 'https://www.svgrepo.com/show/305312/question-mark.svg'}></img>
             <p className='font-bold text-xl text-slate-500'>#{pokemon.id}</p>
             <p className='font-bold text-3xl text-slate-800'>{snakeToTitleCase(pokemon.name)}</p>

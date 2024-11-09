@@ -11,7 +11,6 @@ const PokemonPage = () => {
     const {isFetching, error, data} = useQuery({
         queryKey: ['pokemon', name ?? 'nonexistentPokemon'],
         queryFn: fetchSinglePokemon,
-
     })
     const navigate = useNavigate()
     
@@ -55,7 +54,7 @@ const PokemonPage = () => {
                             (data.gender_rate == 7) ? <img className='size-8' src='https://www.svgrepo.com/show/512452/male-1364.svg' /> : null
                         }
                     </div>
-                    <p className='text-xl text-slate-800 w-64 text-center'>{data.flavor_text_entries?.find(entry => entry?.language?.name == 'en')
+                    <p className='text-xl text-slate-800 w-96 text-center'>{data.flavor_text_entries?.find(entry => entry?.language?.name == 'en')
                     ?.flavor_text.split(' ').map(word => word.charAt(0) + word.slice(1).toLowerCase()).join(' ').replace(/\u000C/g, '') || 'No description available'}</p>
                 </div>
                 <div className='bg-white shadow-lg size-fit flex flex-col gap-4 items-center justify-center p-8 rounded-lg'>
