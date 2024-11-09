@@ -16,8 +16,9 @@ interface Pokemon{
     height?: number;
     weight?: number;
     stats?: Array<{base_stat: number; stat: {name: string}}>;
-    flavor_text_entries?: Array<{flavor_text: string}>;
-    genera?: Array<{genus: string, language: {name: string}}>
+    flavor_text_entries?: Array<{flavor_text: string, language: {name: string}}>;
+    genera?: Array<{genus: string, language: {name: string}}>;
+    gender_rate?: number;
 }
 
 export default Pokemon;
