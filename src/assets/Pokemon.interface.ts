@@ -19,6 +19,7 @@ interface Pokemon{
     flavor_text_entries?: Array<{flavor_text: string, language: {name: string}}>;
     genera?: Array<{genus: string, language: {name: string}}>;
     gender_rate?: number;
+    capture_rate?: number;
 }
 
 export default Pokemon;
