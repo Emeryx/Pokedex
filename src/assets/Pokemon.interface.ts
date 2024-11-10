@@ -1,3 +1,5 @@
+import EvolutionChain from "./EvolutionChain.interface";
+
 interface Pokemon{
     name: string;
     id: number;
@@ -20,6 +22,7 @@ interface Pokemon{
     genera?: Array<{genus: string, language: {name: string}}>;
     gender_rate?: number;
     capture_rate?: number;
+    evolution_chain?: EvolutionChain | undefined;
 }
 
 export default Pokemon;

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import fetchSinglePokemon from "./assets/fetchSinglePokemon"
 import MainInformationContainer from "./sub-components/MainInformationContainer"
 import BasicPokemonStats from "./sub-components/BasicPokemonStats"
+import PokemonEvolutionsAndForms from "./sub-components/PokemonEvolutionsAndForms"
 
 const PokemonPage = () => {
 
@@ -36,6 +37,9 @@ const PokemonPage = () => {
             <div className='bg-gray-100 h-full w-full flex flex-row flex-wrap gap-8 p-16 items-center justify-center'>
                 <MainInformationContainer pokemon={data} />
                 <BasicPokemonStats pokemon={data} />
+                {
+                    data.evolution_chain && <PokemonEvolutionsAndForms pokemon={data} />
+                }
             </div>
         )
     }
