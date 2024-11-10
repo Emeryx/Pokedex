@@ -13,7 +13,7 @@ const fetchSinglePokemon = async ({ queryKey }: QueryFunctionContext<[string, st
         const pokedexData: {capture_rate: number, gender_rate: number, flavor_text_entries: Array<{flavor_text: string, language: {name: string}}>, genera: Array<{genus: string, language: {name: string}}>} = await pokedexEntryResponse.json();
         const {base_experience, height, weight, id, types, sprites, stats} = pokemonData;
         const { flavor_text_entries, genera, gender_rate, capture_rate } = pokedexData;
-        return {flavor_text_entries, genera, gender_rate, capture_rate, base_experience, height, weight, id, types, sprites, stats, name: pokemonData.name};
+        return {flavor_text_entries, genera, gender_rate, capture_rate, base_experience, height, weight, id, types, sprites, stats, name: pokemonData.name, image: pokemonData.sprites.other["official-artwork"].front_default};
     }
     catch(error){
         console.error(error);
