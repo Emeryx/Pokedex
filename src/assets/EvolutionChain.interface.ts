@@ -1,10 +1,10 @@
 interface EvolutionChain{
     chain: {
-        species: { url: string };
+        species: { url: string; name: string  };
         evolves_to: Array < {
-            species: { url: string };
+            species: { url: string; name: string  };
             evolves_to : Array < {
-                species: { url: string };
+                species: { url: string; name: string };
             } >
         } >
     }
